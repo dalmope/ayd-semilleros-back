@@ -32,5 +32,6 @@ VALUES ('1', 'NO ASIGNADO', '2021-12-13 02:30:17.000000' );
 
 INSERT INTO `rol` (`id`, `rol_nombre`) VALUES ('1', 'ROLE_ADMIN');
 INSERT INTO `rol` (`id`, `rol_nombre`) VALUES ('2', 'ROLE_USER');
+INSERT INTO `rol` (`id`, `rol_nombre`) VALUES ('3', 'ROLE_DIRECTOR');
 
 INSERT INTO `usuario_rol` (`usuario_id`, `rol_id`) VALUES ('1', '1');
