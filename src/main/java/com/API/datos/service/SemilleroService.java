@@ -19,4 +19,14 @@ public class SemilleroService {
     public List<Semillero> getSemilleros() {
         return semilleroRepository.findAll();
     }
+
+    public void guardarSemillero(Semillero semillero){
+        semilleroRepository.save(semillero);
+    }
+
+    public void eliminarSemillero(Integer id){
+        semilleroRepository.deleteById(id);
+    }
+
+
 }

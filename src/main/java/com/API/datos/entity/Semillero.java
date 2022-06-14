@@ -15,6 +15,15 @@ public class Semillero {
 
     private String descripcion;
 
+    public Semillero() {
+    }
+
+    public Semillero(String nombre, String descripcion){
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+
+    /*
     private byte[] logo;
 
     @ManyToOne
@@ -40,6 +49,6 @@ public class Semillero {
     public void setDirector(Usuario director) {
         this.director = director;
     }
-
+*/
 
 }
