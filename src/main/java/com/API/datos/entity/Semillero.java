@@ -19,18 +19,18 @@ public class Semillero {
 
     @ManyToOne
     @JoinColumn(name = "actividades_id")
-    private Actividades actividades;
+    private Actividad actividad;
 
     @ManyToOne
     @JoinColumn(name = "director_id")
     private Usuario director;
 
-    public Actividades getActividades() {
-        return actividades;
+    public Actividad getActividades() {
+        return actividad;
     }
 
-    public void setActividades(Actividades actividades) {
-        this.actividades = actividades;
+    public void setActividades(Actividad actividad) {
+        this.actividad = actividad;
     }
 
     public Usuario getDirector() {

@@ -3,7 +3,7 @@ package com.API.datos.entity;
 import javax.persistence.*;
 
 @Entity
-public class Actividades {
+public class Actividad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
