@@ -19,15 +19,11 @@ public class Actividad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String nombreActividad;
-
     private Date fechaInicio;
 
     private Date fechaFinal;
 
     private String titulo;
-
-    private String fechaInicio;
 
     private String duracion;
 
@@ -39,14 +35,6 @@ public class Actividad {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public String getFechaInicio() {
-        return fechaInicio;
-    }
-
-    public void setFechaInicio(String fechaInicio) {
-        this.fechaInicio = fechaInicio;
     }
 
     public String getDuracion() {
@@ -77,11 +65,11 @@ public class Actividad {
         this.semillero = semillero;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 }

@@ -16,7 +16,7 @@ public class SemilleroService {
         this.semilleroRepository = semilleroRepository;
     }
 
-    public List<Semillero> getSemillero() {
+    public List<Semillero> getSemilleros() {
         return semilleroRepository.findAll();
     }
 }
