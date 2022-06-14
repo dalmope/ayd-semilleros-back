@@ -2,7 +2,6 @@ package com.API.datos.mapper;
 
 import com.API.datos.dto.ActividadDto;
 import com.API.datos.entity.Actividad;
-import com.API.datos.entity.Semillero;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
