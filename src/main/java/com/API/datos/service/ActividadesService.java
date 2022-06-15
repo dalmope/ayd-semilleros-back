@@ -19,4 +19,8 @@ public class ActividadesService {
         return actividadesRepository.findAll();
     }
 
+
+    public Actividad getById(Integer idActividad) {
+        return actividadesRepository.getById(idActividad);
+    }
 }
