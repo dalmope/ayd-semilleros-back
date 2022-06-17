@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-import com.API.security.entity.Usuario;
+import com.API.security.enums.entity.Usuario;
 import com.API.security.repository.UsuarioRepository;
 
 @Service

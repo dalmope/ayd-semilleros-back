@@ -7,8 +7,8 @@ import java.util.Set;
 import javax.validation.Valid;
 
 import com.API.datos.entity.Mensaje;
-import com.API.security.entity.Rol;
-import com.API.security.entity.Usuario;
+import com.API.security.enums.entity.Rol;
+import com.API.security.enums.entity.Usuario;
 import com.API.security.enums.RolNombre;
 import com.API.security.jwt.JwtProvider;
 import com.API.security.service.RolService;

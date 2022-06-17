@@ -1,7 +1,7 @@
 package com.API.security.jwt;
 
 import com.API.security.dto.JwtDto;
-import com.API.security.entity.UsuarioPrincipal;
+import com.API.security.enums.entity.UsuarioPrincipal;
 import com.nimbusds.jwt.JWT;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.JWTParser;

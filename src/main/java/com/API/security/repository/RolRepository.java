@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-import com.API.security.entity.Rol;
+import com.API.security.enums.entity.Rol;
 import com.API.security.enums.RolNombre;
 
 @Repository
