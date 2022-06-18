@@ -18,6 +18,4 @@ public class SemilleroDto {
 
     private String descripcion;
 
-    private List<Integer> actividadesId;
-
 }

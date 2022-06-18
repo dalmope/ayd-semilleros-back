@@ -24,6 +24,7 @@ public class Actividad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    private String titulo;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "fecha_inicio")
@@ -33,14 +34,26 @@ public class Actividad {
     @Column(name = "fecha_final")
     private Date fechaFinal;
 
-    private String titulo;
-
     private String duracion;
 
     private String estado;
 
     public String getTitulo() {
         return titulo;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "semillero_id")
+    private Semillero semillero;
+
+    public Actividad(String titulo, Date fechaInicio, Date fechaFinal, String estado, Semillero semillero){
+
+        this.titulo = titulo;
+        this.fechaInicio = fechaInicio;
+        this.fechaFinal = fechaFinal;
+        this.estado = estado;
+        this.semillero = semillero;
+
     }
 
     public void setTitulo(String titulo) {
@@ -68,10 +81,6 @@ public class Actividad {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "semillero_id")
-    private Semillero semillero;
 
     public Semillero getSemillero() {
         return semillero;

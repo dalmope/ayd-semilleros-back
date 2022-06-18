@@ -14,11 +14,10 @@ import java.util.Date;
 @NoArgsConstructor
 public class ActividadDto {
 
-        private Long id;
         private String titulo;
         private Date fechaInicio;
-        private Date duracion;
+        private Date fechaFinal;
         private String estado;
-        private Semillero semillero;
+        private Integer idSemillero;
 
 }

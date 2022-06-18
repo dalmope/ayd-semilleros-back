@@ -18,6 +18,10 @@ public class Semillero {
 
     private String descripcion;
 
+    @OneToMany
+    @JoinColumn(name = "actividades_id")
+    private List<Actividad> actividad;
+
     public Semillero() {
     }
 
@@ -29,9 +33,7 @@ public class Semillero {
 
     //private byte[] logo;
 
-    @OneToMany
-    @JoinColumn(name = "actividades_id")
-    private List<Actividad> actividad;
+
 /*
     @ManyToOne
     @JoinColumn(name = "director_id")

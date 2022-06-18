@@ -1,6 +1,13 @@
 package com.API.datos.controller;
 
-import com.API.datos.service.ActividadesService;
+import com.API.datos.dto.ActividadDto;
+import com.API.datos.dto.SemilleroDto;
+import com.API.datos.entity.Mensaje;
+import com.API.datos.service.ActividadeService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,9 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/actividades")
 public class ActividadesController {
 
-    ActividadesService actividadesService;
+    ActividadeService actividadesService;
 
-    public ActividadesController(ActividadesService actividadesService) {
+    public ActividadesController(ActividadeService actividadesService) {
         this.actividadesService = actividadesService;
     }
 
@@ -21,5 +28,10 @@ public class ActividadesController {
     //    return actividadesService.getActividades();
     //}
 
+    @PostMapping
+    public ResponseEntity<?> crearActividad(@RequestBody ActividadDto actividadDto){
+        actividadesService.guardarActividad(actividadDto);
+        return new ResponseEntity<>(new Mensaje("Actividad Creada"),HttpStatus.OK);
+    }
 
 }

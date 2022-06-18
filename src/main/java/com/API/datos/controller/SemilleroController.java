@@ -5,7 +5,7 @@ import com.API.datos.dto.SemilleroDto;
 import com.API.datos.entity.Actividad;
 import com.API.datos.entity.Mensaje;
 import com.API.datos.entity.Semillero;
-import com.API.datos.service.ActividadesService;
+import com.API.datos.service.ActividadeService;
 import com.API.datos.service.SemilleroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +22,7 @@ public class SemilleroController {
     SemilleroService semilleroService;
 
     @Autowired
-    ActividadesService actividadesService;
+    ActividadeService actividadesService;
 
     @GetMapping
     public List<Semillero> getSemilleros() {
@@ -31,18 +31,18 @@ public class SemilleroController {
 
     @PostMapping
     public ResponseEntity<?> crearSemillero(@RequestBody SemilleroDto semilleroDto){
-        Semillero nuevoSemillero = new Semillero(semilleroDto.getNombre(), semilleroDto.getDescripcion());
-        semilleroService.guardarSemillero(nuevoSemillero);
+        Semillero nuevoSemillero = new Semillero(semilleroDto.getNombre(),
+                                                semilleroDto.getDescripcion());
+        return new ResponseEntity<>(new Mensaje("Semillero Creado"),
+        HttpStatus.OK);
+
+        /*semilleroService.guardarSemillero(nuevoSemillero);
         if(semilleroDto.getActividadesId() != null) {
             for (Integer idActividad : semilleroDto.getActividadesId()) {
                 Actividad actividad = actividadesService.getById(idActividad);
                 nuevoSemillero.getActividades().add(actividad);
             }
-        }
-
-
-        return new ResponseEntity<>(new Mensaje("Semillero Creado"),
-        HttpStatus.OK);
+        }*/
     }
 
 
