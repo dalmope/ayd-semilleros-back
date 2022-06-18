@@ -4,9 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 @Getter
 @Setter
@@ -19,8 +24,13 @@ public class Actividad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @Column(name = "fecha_inicio")
     private Date fechaInicio;
 
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @Column(name = "fecha_final")
     private Date fechaFinal;
 
     private String titulo;
@@ -37,12 +47,18 @@ public class Actividad {
         this.titulo = titulo;
     }
 
-    public String getDuracion() {
-        return duracion;
-    }
+    public String getDuracion() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
+        Date fechaInicial = sdf.parse(String.valueOf(this.fechaInicio));
+        Date fechaFin = sdf.parse(String.valueOf(this.fechaFinal));
 
-    public void setDuracion(String duracion) {
-        this.duracion = duracion;
+        long diff = fechaFin.getTime() - fechaInicial.getTime();
+
+        TimeUnit time = TimeUnit.DAYS;
+
+        long diferenciaDias = time.convert(diff, TimeUnit.MILLISECONDS);
+
+        return " " + diferenciaDias;
     }
 
     public String getEstado() {

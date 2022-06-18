@@ -1,5 +1,6 @@
 package com.API.datos.entity;
 
+import com.API.security.enums.entity.Usuario;
 import lombok.Getter;
 
 import javax.persistence.*;
