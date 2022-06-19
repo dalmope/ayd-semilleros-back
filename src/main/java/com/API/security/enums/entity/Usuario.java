@@ -3,6 +3,7 @@ package com.API.security.enums.entity;
 import javax.persistence.*;
 
 import com.API.datos.entity.Proyecto;
+import com.API.datos.entity.Semillero;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -50,6 +51,11 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name = "proyecto_id")
     private Proyecto proyecto;
+
+    @OneToMany
+    @JoinColumn(name = "semillero_id")
+    private Semillero semillero;
+
 
     public Usuario() {
     }
