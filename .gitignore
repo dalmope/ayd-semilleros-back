@@ -14,6 +14,8 @@
 
 .mvn
 
+target
+
 # Package Files #
 *.jar
 *.war

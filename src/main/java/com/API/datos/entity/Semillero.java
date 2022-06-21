@@ -1,9 +1,12 @@
 package com.API.datos.entity;
 
-import com.API.security.entity.Usuario;
+import com.API.security.enums.entity.Usuario;
+import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.List;
 
+@Getter
 @Entity
 public class Semillero {
 
@@ -15,24 +18,35 @@ public class Semillero {
 
     private String descripcion;
 
-    private byte[] logo;
-
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "actividades_id")
-    private Actividad actividad;
+    private List<Actividad> actividad;
+
+    public Semillero() {
+    }
+
+    public Semillero(String nombre, String descripcion){
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+
+
+    //private byte[] logo;
+
+
 
     @ManyToOne
     @JoinColumn(name = "director_id")
     private Usuario director;
 
-    public Actividad getActividades() {
+    public List<Actividad> getActividades() {
         return actividad;
     }
 
-    public void setActividades(Actividad actividad) {
+    public void setActividades(List<Actividad> actividad) {
         this.actividad = actividad;
     }
-
+/*
     public Usuario getDirector() {
         return director;
     }
@@ -40,6 +54,6 @@ public class Semillero {
     public void setDirector(Usuario director) {
         this.director = director;
     }
-
+*/
 
 }

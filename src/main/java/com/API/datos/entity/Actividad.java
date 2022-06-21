@@ -1,22 +1,38 @@
 package com.API.datos.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
-@Entity
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Actividad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String titulo;
 
-    private String fechaInicio;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @Column(name = "fecha_inicio")
+    private Date fechaInicio;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @Column(name = "fecha_final")
+    private Date fechaFinal;
 
     private String duracion;
 
@@ -26,24 +42,36 @@ public class Actividad {
         return titulo;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "semillero_id")
+    private Semillero semillero;
+
+    public Actividad(String titulo, Date fechaInicio, Date fechaFinal, String estado, Semillero semillero){
+
+        this.titulo = titulo;
+        this.fechaInicio = fechaInicio;
+        this.fechaFinal = fechaFinal;
+        this.estado = estado;
+        this.semillero = semillero;
+
+    }
+
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
-    public String getFechaInicio() {
-        return fechaInicio;
-    }
+    public String getDuracion() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
+        Date fechaInicial = sdf.parse(String.valueOf(this.fechaInicio));
+        Date fechaFin = sdf.parse(String.valueOf(this.fechaFinal));
 
-    public void setFechaInicio(String fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
+        long diff = fechaFin.getTime() - fechaInicial.getTime();
 
-    public String getDuracion() {
-        return duracion;
-    }
+        TimeUnit time = TimeUnit.DAYS;
 
-    public void setDuracion(String duracion) {
-        this.duracion = duracion;
+        long diferenciaDias = time.convert(diff, TimeUnit.MILLISECONDS);
+
+        return " " + diferenciaDias;
     }
 
     public String getEstado() {
@@ -54,10 +82,6 @@ public class Actividad {
         this.estado = estado;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "semillero_id")
-    private Semillero semillero;
-
     public Semillero getSemillero() {
         return semillero;
     }
@@ -66,11 +90,11 @@ public class Actividad {
         this.semillero = semillero;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 }

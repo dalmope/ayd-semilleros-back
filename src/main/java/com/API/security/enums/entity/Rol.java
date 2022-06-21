@@ -1,4 +1,4 @@
-package com.API.security.entity;
+package com.API.security.enums.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;

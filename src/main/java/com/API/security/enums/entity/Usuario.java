@@ -1,9 +1,9 @@
-package com.API.security.entity;
+package com.API.security.enums.entity;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.API.datos.entity.Proyecto;
+import com.API.datos.entity.Semillero;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -47,6 +47,15 @@ public class Usuario {
                     @JoinColumn(name = "rol_id", referencedColumnName = "ID") })
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Rol> roles = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "proyecto_id")
+    private Proyecto proyecto;
+
+    @OneToMany
+    @JoinColumn(name = "semillero_id")
+    private Semillero semillero;
+
 
     public Usuario() {
     }

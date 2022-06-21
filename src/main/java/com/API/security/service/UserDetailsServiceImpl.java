@@ -1,7 +1,7 @@
 package com.API.security.service;
 
-import com.API.security.entity.Usuario;
-import com.API.security.entity.UsuarioPrincipal;
+import com.API.security.enums.entity.Usuario;
+import com.API.security.enums.entity.UsuarioPrincipal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
