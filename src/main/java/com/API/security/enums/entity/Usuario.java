@@ -17,6 +17,12 @@ public class Usuario {
     @Column(name = "ID")
     private Integer id;
     @Basic(optional = false)
+    @Column(name = "tipo_doc")
+    private String tipoDoc;
+    @Basic(optional = false)
+    @Column(name = "num_doc")
+    private int numDoc;
+    @Basic(optional = false)
     @Column(name = "nombre")
     private String nombre;
     @Basic(optional = false)
@@ -46,13 +52,17 @@ public class Usuario {
     @JoinColumn(name = "proyecto_id")
     private Proyecto proyecto;
 
-
+    @OneToMany
+    @JoinColumn(name = "semillero_id")
+    private Semillero semillero;
 
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String apellido, String nombreUsuario, int telefono, String email, String password) {
+    public Usuario(String tipoDoc, int numDoc, String nombre, String apellido, String nombreUsuario, int telefono, String email, String password) {
+        this.tipoDoc = tipoDoc;
+        this.numDoc = numDoc;
         this.nombre = nombre;
         this.apellido = apellido;
         this.nombreUsuario = nombreUsuario;
@@ -63,6 +73,22 @@ public class Usuario {
 
     public Integer getId() {
         return id;
+    }
+
+    public String getTipoDoc() {
+        return tipoDoc;
+    }
+
+    public void setTipoDoc(String tipoDoc) {
+        this.tipoDoc = tipoDoc;
+    }
+
+    public int getNumDoc() {
+        return numDoc;
+    }
+
+    public void setNumDoc(int numDoc) {
+        this.numDoc = numDoc;
     }
 
     public String getNombre() {
