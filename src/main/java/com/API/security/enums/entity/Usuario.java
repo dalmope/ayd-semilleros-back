@@ -52,7 +52,7 @@ public class Usuario {
     @JoinColumn(name = "proyecto_id")
     private Proyecto proyecto;
 
-    @OneToMany
+    @OneToOne
     @JoinColumn(name = "semillero_id")
     private Semillero semillero;
 

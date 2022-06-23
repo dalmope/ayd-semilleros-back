@@ -29,7 +29,7 @@ public class Proyecto implements Serializable {
     private Date fechaInicio;
 
     @OneToMany
-    @JoinColumn(name = "estudiantes_id")
+    @JoinColumn(name = "proyecto_id")
     private List<Usuario> usuariosEstudiante;
 
 

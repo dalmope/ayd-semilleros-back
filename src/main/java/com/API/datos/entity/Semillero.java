@@ -3,7 +3,13 @@ package com.API.datos.entity;
 import com.API.security.enums.entity.Usuario;
 import lombok.Getter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Getter
@@ -29,11 +35,6 @@ public class Semillero {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
-
-
-    //private byte[] logo;
-
-
 
     @ManyToOne
     @JoinColumn(name = "director_id")
