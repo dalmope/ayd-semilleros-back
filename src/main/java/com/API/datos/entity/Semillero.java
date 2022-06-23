@@ -34,11 +34,11 @@ public class Semillero {
     //private byte[] logo;
 
 
-
+/*
     @ManyToOne
     @JoinColumn(name = "director_id")
     private Usuario director;
-
+*/
     public List<Actividad> getActividades() {
         return actividad;
     }
